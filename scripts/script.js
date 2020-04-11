@@ -2,10 +2,9 @@
 const APIurl = "https://api.giphy.com/v1/gifs/";
 const APIkey = "l9bQPMQyB7YdGuYipb4xzaTryYkF2TRX";
 
-let sailor_day = "/style/sailor_day.css";
-let sailor_night = "/style/sailor_night.css";
+let sailor_day = "./style/sailor_day.css";
+let sailor_night = "./style/sailor_night.css";
 
-//Mantener el tema sailor_night
 if (localStorage.getItem('theme') == 2) {
     document.getElementById("lupa").src = "./images/lupa.svg";
 }
