@@ -5,6 +5,11 @@ const APIkey = "l9bQPMQyB7YdGuYipb4xzaTryYkF2TRX";
 let sailor_day = "/style/sailor_day.css";
 let sailor_night = "/style/sailor_night.css";
 
+//Mantener el tema sailor_night
+if (localStorage.getItem('theme') == 2) {
+    document.getElementById("lupa").src = "./images/lupa.svg";
+}
+
 //Para abrir/cerrar menu
 function ver() {
     document.getElementById("theme-list").style.display = "block";
@@ -16,15 +21,14 @@ function ocultar() {
 
 function active_sailor_night() {
     document.getElementById("theme").href = sailor_night;
-    document.getElementById("img-header").src = "/images/gifOF_logo_dark.png";
-    document.getElementById("lupa").src = "/images/lupa.svg";
+    document.getElementById("img-header").src = "./images/gifOF_logo_dark.png";
+    document.getElementById("lupa").src = "./images/lupa.svg";
     setThemeLS();
 }
 
 function active_sailor_day() {
     document.getElementById("theme").href = sailor_day;
-    document.getElementById("img-header").src = "/images/gifOF_logo.png";
-    document.getElementById("lupa").src = "/images/lupa_inactive.svg";
+    document.getElementById("img-header").src = "./images/gifOF_logo.png";
     setThemeLS();
 }
 
@@ -61,7 +65,6 @@ function getSearchResults() {
             return response.json();
         })
         .then(data => {
-            document.getElementById("results").innerText = "Resultados de búsqueda: " + search;
             document.querySelector(".autocomplete-search").style.display = "none";
             innerGifs = document.getElementById("researched_gifs");
             innerGifs.innerHTML = "";
@@ -89,6 +92,7 @@ function getSearchResults() {
                         document.getElementById(`gif-${i + 1}`).appendChild(spanChild);
                     }
                 }
+                document.getElementById("results").innerText = "Resultados de búsqueda: " + search;
             }
         })
         .catch(error => {
@@ -98,9 +102,9 @@ function getSearchResults() {
 }
 
 
-// Autocompletar
+// 
 
-function resultadoSugerido() {
+function searchResult() {
     autoComp = document.querySelector(".autocomplete-search");
     autoComp.style.display = "block";
     search = document.getElementById("search").value;
@@ -131,7 +135,7 @@ function resultadoSugerido() {
 function clearResults() {
     document.getElementById("researched_gifs").innerHTML = "";
     document.querySelector(".search-results").style.display = "none";
-    document.getElementById("search")[0].placeholder = "Busca gifs, hashtags, temas, busca lo que quieras…";
+    document.getElementById("search").placeholder = "Busca gifs, hashtags, temas, busca lo que quieras…";
 }
 
 
@@ -145,14 +149,14 @@ function suggestedGifs(gif) {
             let gif_box = document.createElement("div");
             gif_box.className = "gif-box";
             gif_box.innerHTML = `
-          <div class='gif-title'>
-            <span>#${gif}</span><span style='float: right;'><img src='/images/button3.svg' /></span>
-          </div>
-          <div class='gif-img'>
-            <img src='${data.data[0].images.original.url}'>
-            <span class='btn-gif'><a onclick="getSearchResults()" target='_blank'>Ver más...</a></span>
-          </div>
-        `;
+                <div class='gif-title'>
+                    <span>#${gif}</span><span style='float: right;'><img src='./images/button3.svg' /></span>
+                </div>
+                <div class='gif-img'>
+                    <img src='${data.data[0].images.original.url}'>
+                <span class='btn-gif'><a target='_blank'>Ver más...</a></span>
+                </div>
+            `;
             document.getElementById("gif_suggested").append(gif_box);
         });
 }

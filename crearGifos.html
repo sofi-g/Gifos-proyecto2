@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tus Gifos</title>
-    <link type="text/css" rel="stylesheet" href="/style/general_style.css">
-    <link rel="stylesheet" href="/style/sailor_day.css" id="theme">
+    <link type="text/css" rel="stylesheet" href="./style/general_style.css">
+    <link rel="stylesheet" href="./style/sailor_day.css" id="theme">
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap" rel="stylesheet">
 </head>
 
@@ -20,15 +20,15 @@
     <div class="content">
 
         <nav class="nav-bar">
-            <a href="index.html"><img class="back-arrow" src="/images/arrow.svg" alt="">
-                <img id="img-header" src="/images/gifOF_logo.png" alt="">
+            <a href="index.html"><img class="back-arrow" src="./images/arrow.svg" alt="">
+                <img id="img-header" src="./images/gifOF_logo.png" alt="">
             </a>
         </nav>
 
         <section class="create-gif-section">
             <p class="create-gif-title"> Crear Guifos </p>
             <div class="create-gif-window">
-                <div class="window-img"><img src="/images/windowimg.png" alt=""></div>
+                <div class="window-img"><img src="./images/windowimg.png" alt=""></div>
                 <div>
                     <p class="subtitle-window"><strong>Aquí podrás crear tus propios guifos</strong></p>
                     <div class="create-gif-text">
@@ -55,11 +55,11 @@
                 </div>
             </div>
         </section>
-        <a href="/index/index.html"></a>
+        <a href="./index/index.html"></a>
 
         <section class="video-recording">
             <p class="create-gif-title"><span id="titleBox">Un chequeo antes de empezar</span><button
-                    onclick="location.href='index.html'"><img class='close-icon' src="/images/close.svg"
+                    onclick="location.href='index.html'"><img class='close-icon' src="./images/close.svg"
                         alt="Cerrar ventana"></button></p>
 
             <div class="video-container">
@@ -69,13 +69,13 @@
 
             <div class="capture-btn">
                 <button id='startRecording' class="btn-create-gif confirm" onclick="startRecording()"><img
-                        class="btn-camera" src="/images/camera.svg" alt=""><span>Capturar</span></button>
+                        class="btn-camera" src="./images/camera.svg" alt=""><span>Capturar</span></button>
                 <button class="btn-create-gif stop" onclick="stopRecording()"><img class="btn-camera"
-                        src="/images/recording.svg" alt=""><span>Listo</span></button>
+                        src="./images/recording.svg" alt=""><span>Listo</span></button>
                 <div id="timer"></div>
 
                 <div class="btns-upload-gif">
-                    <div class="buffer-bar"><img src="/images/forward.svg" class="forward" alt="cargando">
+                    <div class="buffer-bar"><img src="./images/forward.svg" class="forward" alt="cargando">
                         <div class="buffer">
                             <div class="buffer-bar-item"></div>
                             <div class="buffer-bar-item"></div>
@@ -105,7 +105,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/RecordRTC/5.5.8/RecordRTC.js"></script>
-    <script src="/scripts/crearGifos.js"></script>
+    <script src="./scripts/crearGifos.js"></script>
 
 </body>
 

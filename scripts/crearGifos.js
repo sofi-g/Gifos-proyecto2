@@ -3,9 +3,9 @@ let buffer = document.querySelectorAll(".buffer-bar-item");
 
 //Mantener el tema sailor_night
 if (localStorage.getItem('theme') == 2) {
-    document.getElementById("theme").href = '/style/sailor_night.css';
-    document.getElementById("img-header").src = "/images/gifOF_logo_dark.png";
-    document.getElementsByClassName("btn-camera")[0].src = "/images/camera_light.svg";
+    document.getElementById("theme").href = './style/sailor_night.css';
+    document.getElementById("img-header").src = "./images/gifOF_logo_dark.png";
+    document.getElementsByClassName("btn-camera")[0].src = "./images/camera_light.svg";
 }
 
 // Para timer de gif
@@ -102,7 +102,7 @@ function uploadGif(gif) {
     document.getElementById("timer").style.display = "none";
     document.querySelector('.gif-preview-container').innerHTML = `
     <div class='uploading-gif'>
-      <img src="/images/globe_img.png">
+      <img src="./images/globe_img.png">
       <p class='uploading-gif-title'>Estamos subiendo tu guifo...<p>
       <div class="progress-bar" id="progress-bar">
         <ul>
@@ -161,28 +161,43 @@ function uploadGif(gif) {
                     let alertGif = document.createElement('div');
                     alertGif.className = 'alert-gif';
                     alertGif.innerHTML = `
-            <p class='title-modal'> Guifo subido con éxito! <span style='float: right'>
-            <img id='closeModal' src="/images/close.svg"></span></p>
-            <div class='content-modal'>
-              <img class='gif-modal' src='${data.data.images.original.url}'>
-              <div class='gif-modal-btns'>
-                <button>Copiar Enlace Guifo</button>
-                <button>Descargar Guifo</button>
-              </div>
-            <div>
-            `;
+                        <p class='title-alert'> Guifo subido con éxito! <span style='float: right'>
+                        <img id='closeAlert' src="./images/close.svg"></span></p>
+                        <div class='contentAlert'>
+                            <img class='gif-alert' src='${data.data.images.original.url}'>
+                        </div>
+                        <div class='gif-alert-btns'>
+                            <button id='copy_link'>Copiar Enlace Guifo</button>
+                            <button id='download_guifo'>Descargar Guifo</button>
+                        </div>
+                        `;
                     document.querySelector('.content').style.filter = 'grayscale(70%) blur(2px)';
                     document.querySelector('.header-title').style.filter = 'grayscale(70%) blur(2px)';
                     document.body.append(alertGif);
-                    document.getElementById('closeModal').addEventListener('click', () => {
+                    document.getElementById('closeAlert').addEventListener('click', () => {
                         document.querySelector('.alert-gif').style.display = 'none';
-                        window.location.href = "/index/crearGifos.html";
+                        window.location.href = "./index/crearGifos.html";
                     });
                 });
         });
 }
 
-// Anima la barra de subida
+const myGifos = document.getElementById("mygifos");
+
+(function displayGifs() {
+    for (let i = 0; i < localStorage.length; i++) {
+        if (localStorage.key(i).startsWith('mygif-')) {
+            gifObj = JSON.parse(localStorage.getItem(localStorage.key(i)));
+            gif = document.createElement("img");
+            gif.id = gifObj.id;
+            gif.src = `${gifObj.images.original.url}`;
+            gif.className = 'img-gif';
+            myGifos.appendChild(gif);
+        }
+    }
+})();
+
+
 function animateProgressBar() {
     document.querySelector('.progress-bar').style.display = 'inline-block';
     let progressBar = document.getElementById('progress-bar');
@@ -199,22 +214,3 @@ function animateProgressBar() {
         }
     }, 400);
 };
-
-const myGifos = document.getElementById("mygifos");
-
-(function displayGifs() {
-    for (let i = 0; i < localStorage.length; i++) {
-        if (localStorage.key(i).startsWith('mygif-')) {
-            gifObj = JSON.parse(localStorage.getItem(localStorage.key(i)));
-            gif = document.createElement("img");
-            gif.id = gifObj.id;
-            gif.src = `${gifObj.images.original.url}`;
-            gif.className = 'img-gif';
-            myGifos.appendChild(gif);
-        }
-    }
-
-    if (myGifos.innerHTML === '') {
-        myGifos.innerHTML = 'Aun no creaste gifs';
-    }
-})();

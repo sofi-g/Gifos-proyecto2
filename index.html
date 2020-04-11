@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Proyecto 2 - gifOS</title>
-    <link type="text/css" rel="stylesheet" href="/style/general_style.css">
+    <link type="text/css" rel="stylesheet" href="./style/general_style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap">
-    <link rel="stylesheet" href="/style/sailor_day.css" id="theme">
+    <link rel="stylesheet" href="./style/sailor_day.css" id="theme">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
         <nav class="nav-bar">
 
             <a href="index.html">
-                <img id="img-header" src="/images/gifOF_logo.png" alt="logo">
+                <img id="img-header" src="./images/gifOF_logo.png" alt="logo">
             </a>
 
             <div class="btns-menu">
@@ -34,7 +34,7 @@
                     <ul>
                         <li onmouseover="ver()" onmouseout="ocultar()">
                             <button class="btn-theme"><span>Elegir tema</span></button>
-                            <button class="btn-theme dropdown"><span><img src="/images/dropdown.svg"
+                            <button class="btn-theme dropdown"><span><img src="./images/dropdown.svg"
                                         alt="dropdown"></span></button>
                             <div id="theme-list">
                                 <p onclick="active_sailor_day()" id="sailor_day" class="sailor-day"><span
@@ -60,9 +60,9 @@
                 </h2>
                 <div class="search-bar">
                     <input class="search-input" autocomplete="off" id="search"
-                        placeholder="Busca gifs, hashtags, temas, busca lo que quieras…" oninput="resultadoSugerido()">
+                        placeholder="Busca gifs, hashtags, temas, busca lo que quieras…" oninput="searchResult()">
                     <button type="submit" class="btn-search" onclick="getSearchResults()">
-                        <span class="btn-search-section"><img id="lupa" src="/images/lupa_inactive.svg"
+                        <span class="btn-search-section"><img id="lupa" src="./images/lupa_inactive.svg"
                                 alt="lupa" /></span></button>
                 </div>
                 <div class="autocomplete-search"></div>
@@ -91,7 +91,7 @@
     </div>
 
 
-    <script src="/scripts/script.js"></script>
+    <script src="./scripts/script.js"></script>
 </body>
 
 </html>
