@@ -165,7 +165,7 @@ function uploadGif(gif) {
                         </div>
                         <div class='gif-alert-btns'>
                             <button id='copy_link'>Copiar Enlace Guifo</button>
-                            <button id='download_guifo'>Descargar Guifo</button>
+                            <button id='download_gif'>Descargar Guifo</button>
                         </div>
                         `;
                     document.querySelector('.content').style.filter = 'grayscale(70%) blur(2px)';
@@ -173,7 +173,7 @@ function uploadGif(gif) {
                     document.body.append(alertGif);
                     document.getElementById('closeAlert').addEventListener('click', () => {
                         document.querySelector('.alert-gif').style.display = 'none';
-                        window.location.href = "./index/crearGifos.html";
+                        window.location.href = "crearGifos.html";
                     });
                     document.getElementById("copy_link").addEventListener("click", () => {
                         let url_newGif = URL.createObjectURL(recorder.getBlob());;
