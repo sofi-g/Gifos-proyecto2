@@ -8,12 +8,10 @@ if (localStorage.getItem('theme') == 2) {
     document.getElementsByClassName("btn-camera")[0].src = "./images/camera_light.svg";
 }
 
-// Para timer de gif
-let recording = false;
-
-//contador
+//Timer
 let timerVar = setInterval(countTimer, 1000);
 let totalSeconds = 0;
+let recording = false;
 
 function countTimer() {
     if (recording) {
@@ -86,7 +84,6 @@ function stopRecording() {
         preview.src = URL.createObjectURL(recorder.getBlob());
         document.getElementById("titleBox").innerHTML = "Vista Previa";
 
-        // Creo el form
         let form = new FormData();
         form.append("file", recorder.getBlob(), "myGif.gif");
 
@@ -101,35 +98,35 @@ function stopRecording() {
 function uploadGif(gif) {
     document.getElementById("timer").style.display = "none";
     document.querySelector('.gif-preview-container').innerHTML = `
-    <div class='uploading-gif'>
-      <img src="./images/globe_img.png">
-      <p class='uploading-gif-title'>Estamos subiendo tu guifo...<p>
-      <div class="progress-bar" id="progress-bar">
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      </div>
-      <p class='time-left'>Tiempo restante: <span style='text-decoration: line-through'>38 años</span> algunos segundos</p>
-    </div>`;
+        <div class='uploading-gif'>
+            <img src="./images/globe_img.png">
+            <p class='uploading-gif-title'>Estamos subiendo tu guifo...<p>
+            <div class="progress-bar" id="progress-bar">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <p class='time-left'>Tiempo restante: <span style='text-decoration: line-through'>38 años</span> algunos segundos</p>
+        </div>`;
     animateProgressBar();
     document.querySelector('.btns-upload-gif').innerHTML = `
-    <button class="btn-create-gif repeat push" onclick="location.href='crearGifos.html'"><span>Cancelar</span></button>
-    `
+        <button class="btn-create-gif repeat push" onclick="location.href='crearGifos.html'"><span>Cancelar</span></button>
+        `
 
     fetch(
             "https://upload.giphy.com/v1/gifs?api_key=l9bQPMQyB7YdGuYipb4xzaTryYkF2TRX", {
@@ -177,6 +174,20 @@ function uploadGif(gif) {
                     document.getElementById('closeAlert').addEventListener('click', () => {
                         document.querySelector('.alert-gif').style.display = 'none';
                         window.location.href = "./index/crearGifos.html";
+                    });
+                    document.getElementById("copy_link").addEventListener("click", () => {
+                        let url_newGif = URL.createObjectURL(recorder.getBlob());;
+                        let texto = document.createElement("textarea");
+                        texto.value = url_newGif;
+                        document.body.appendChild(texto);
+                        texto.select();
+                        document.execCommand("copy");
+                        document.body.removeChild(texto);
+                        alert("El link de tu gif se ha copiado al portapapeles :)");
+                    });
+                    document.getElementById("download_gif").addEventListener("click", () => {
+                        let url_newGif = URL.createObjectURL(recorder.getBlob());;
+                        window.open(url_newGif, "_blank");
                     });
                 });
         });

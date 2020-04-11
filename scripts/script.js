@@ -5,11 +5,15 @@ const APIkey = "l9bQPMQyB7YdGuYipb4xzaTryYkF2TRX";
 let sailor_day = "./style/sailor_day.css";
 let sailor_night = "./style/sailor_night.css";
 
+//Mantener el tema sailor_night
 if (localStorage.getItem('theme') == 2) {
+    document.getElementById("theme").href = './style/sailor_night.css';
+    document.getElementById("img-header").src = "./images/gifOF_logo_dark.png";
+    document.getElementsByClassName("btn-camera")[0].src = "./images/camera_light.svg";
     document.getElementById("lupa").src = "./images/lupa.svg";
 }
 
-//Para abrir/cerrar menu
+//Dropdown
 function ver() {
     document.getElementById("theme-list").style.display = "block";
 }
@@ -41,11 +45,7 @@ function setThemeLS() {
 }
 setThemeLS();
 
-//CAMBIO DE BOTONES
-let boton = document.getElementsByClassName("btn-search")[0];
-let lupa = document.getElementById("lupa");
-
-//Hace que se puedan buscar gifs presionando enter
+//Buscar gifs presionando enter en la barra
 document.querySelector(".search-bar input").addEventListener("keydown", e => {
     if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
         document.querySelector(".btn-search").click();
@@ -55,7 +55,7 @@ document.querySelector(".search-bar input").addEventListener("keydown", e => {
     }
 });
 
-// BARRA DE Busqueda
+//BARRA DE Búsqueda
 function getSearchResults() {
     document.querySelector(".search-results").style.display = "block";
     search = document.getElementById("search").value;
@@ -100,9 +100,7 @@ function getSearchResults() {
     return found;
 }
 
-
-// 
-
+//Autocomplete 
 function searchResult() {
     autoComp = document.querySelector(".autocomplete-search");
     autoComp.style.display = "block";
@@ -129,14 +127,12 @@ function searchResult() {
         });
 }
 
-
 // Limpiar resultados
 function clearResults() {
     document.getElementById("researched_gifs").innerHTML = "";
     document.querySelector(".search-results").style.display = "none";
     document.getElementById("search").placeholder = "Busca gifs, hashtags, temas, busca lo que quieras…";
 }
-
 
 // SUGERIDOS
 function suggestedGifs(gif) {
@@ -222,5 +218,4 @@ function trendings() {
         });
     return found;
 }
-
 trendings();
