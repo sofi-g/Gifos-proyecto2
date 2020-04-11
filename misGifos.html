@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mis Gifos</title>
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/style/general_style.css">
+    <link rel="stylesheet" href="/style/sailor_day.css" id="theme">
+    </head>
+
+<body>
+    <header class="header">
+        <h1 class="header-title">
+            ¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803
+        </h1>
+    </header>
+
+    <div class="content">
+
+        <div class="nav-bar">
+            <a href="index-home.html"><img class="back-arrow" src="/images/arrow.svg" alt=""><img id="img-header"
+                    src="/images/gifOF_logo.png" alt=""></a>
+        </div>
+
+
+        <div class="my-gifos">
+            <div class="title-section">Mis Guifos: </div>
+            <div id="mygifos"></div>
+        </div>
+
+    </div>
+
+    <script src="/scripts/crearGifos.js"></script>
+    <script>
+        if (localStorage.getItem('theme') == 2) {
+            document.getElementById("theme").href = '/style/sailor_night.css';
+            document.getElementById("img-header").src = "/images/gifOF_logo_dark.png";
+        }       
+    </script>
+</body>
+
+</html>

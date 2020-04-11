@@ -1,0 +1,152 @@
+body {
+    background-color: #110039;
+}
+
+.header {
+    background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+    box-shadow: 0 1px 0 0 #110038;
+}
+
+.btn-theme,
+.create-gif {
+    color: white;
+    background: #ee3efe;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+}
+
+.create-gif a {
+    color: white;
+}
+
+.btn-theme:hover,
+.choose-theme:hover button,
+.create-gif:hover {
+    background: #cf37db;
+}
+
+#theme-list p.sailor-night:hover {
+    background: #2e32fb;
+}
+
+.misGifos-btn {
+    color: #ffffff;
+}
+
+.misGifos-btn:hover {
+    border: 1px dotted white;
+}
+
+.search-bar {
+    box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+}
+
+.search-title {
+    background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+}
+
+.underline {
+    border-bottom: 1px solid white;
+}
+
+.search-bar,
+.btn-search {
+    color: black;
+    background: #b4b4b4;
+}
+
+.title-section {
+    border: 1px solid #2e32fb;
+    box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #110038;
+}
+
+.title-gif {
+    background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+}
+
+.gif:hover {
+    background: #b4b4b4;
+    box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+}
+
+.gif-title {
+    border-bottom: 1px solid white;
+    color: white;
+    background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+}
+
+.btn-gif {
+    background: #2e32fb;
+    border: 1px solid #4c2f99;
+    box-shadow: inset -2px -2px 0 0 #2124b3, inset 2px 2px 0 0 #ffffff;
+}
+
+.autocomplete-search {
+    background: #b4b4b4;
+    box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+}
+
+.autocomplete-search p {
+    padding: 2px;
+    margin-bottom: 10px;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+}
+
+.autocomplete-search p:hover {
+    cursor: pointer;
+    background: #a5a5a5;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+}
+
+.autocomplete-search a {
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 1rem;
+    color: #110038;
+    letter-spacing: 0;
+    display: block;
+    text-decoration: none;
+    border: 1px solid transparent;
+    padding: 8px;
+}
+
+.autocomplete-search a:hover {
+    border: 1px dotted #110038;
+}
+
+.create-gif-title {
+    background-image: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+}
+
+.confirm,
+.upload {
+    color: white;
+    background: #ee3efe;
+    border: 1px solid #110038;
+    box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+}
+
+.confirm a {
+    color: white;
+}
+
+.confirm:hover {
+    background: #cf37db;
+}
+
+.upload:hover {
+    background: #cf37db;
+    border: 1px dotted white;
+}
+
+.repeat {
+    color:#FFF4FD;
+    background: #110038;
+    border: 1px solid #B4B4B4;
+    box-shadow: inset -1px -1px 0 0 #5C5C5C, inset 1px 1px 0 0 #FFF4FD;
+}
+
+.repeat:hover {
+    border: 1px dotted white;
+}
